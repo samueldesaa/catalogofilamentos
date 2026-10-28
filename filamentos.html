@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vitrine de Filamentos 3D</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="midia/filamentos/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="filamentosStyle.css" />
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true">3D</div>
+                <div>
+                    <h1>Filamentos 3D</h1>
+                    <p>Vitrine de cores para impressão personalizada</p>
+                </div>
+            </div>
+
+            <a class="header-link" href="#cores">Ver catálogo <span aria-hidden="true">↘</span></a>
+        </header>
+
+        
+
+        <section id="cores">
+            <div class="section-title">
+                <h2>Estante de cores</h2>
+                <p>Escolha sua cor favorita. A disponibilidade é atualizada em <code>filamentos.json</code>.</p>
+            </div>
+
+            <div class="shelf">
+                <p class="catalog-status" id="catalogStatus" aria-live="polite"></p>
+                <div class="filament-grid" id="filamentGrid" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="contact-banner">
+            <div><span class="hero-tag">VAMOS CRIAR?</span><h2>Seu próximo projeto começa aqui.</h2><p>Escolha uma cor e peça um orçamento personalizado.</p></div>
+            <a class="whatsapp-btn" href="https://wa.me/+5598984888321" target="_blank" rel="noopener noreferrer">Conversar sobre meu projeto <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+    <script>
+        const filamentGrid = document.getElementById("filamentGrid");
+        const statusEl = document.getElementById("catalogStatus");
+        const countEl = document.getElementById("colorCount");
+
+        async function carregarFilamentos() {
+            try {
+                const resposta = await fetch("filamentos.json", { cache: "no-store" });
+                if (!resposta.ok) throw new Error("Não foi possível carregar filamentos.json");
+                return await resposta.json();
+            } catch (erro) {
+                statusEl.textContent = "Não foi possível carregar o catálogo em filamentos.json.";
+                return null;
+            }
+        }
+
+        function criarCardFilamento(filamento, disponivel) {
+            const card = document.createElement("article");
+            card.className = "filament-card";
+            card.style.setProperty("--color", filamento.cor);
+            card.style.setProperty("--glow", filamento.brilho);
+            const foto = document.createElement("img");
+            foto.src = filamento.linkImagem;
+            foto.alt = `Rolo de filamento ${filamento.material} ${filamento.nome}`;
+            foto.style.objectFit = "contain";
+            foto.loading = "lazy";
+            foto.width = 800;
+            foto.height = 600;
+            foto.onerror = () => { foto.src = "midia/filamentos/catalogo-preto.webp"; };
+            const imagem = document.createElement("div");
+            imagem.className = "image-box";
+            imagem.append(foto);
+            const ponto = document.createElement("span");
+            ponto.className = "color-dot";
+            ponto.setAttribute("aria-hidden", "true");
+            imagem.append(ponto);
+            const conteudo = document.createElement("div");
+            conteudo.className = "card-content";
+            const titulo = document.createElement("h3");
+            titulo.textContent = filamento.nome;
+            const descricao = document.createElement("p");
+            descricao.textContent = filamento.descricao;
+            const rodape = document.createElement("div");
+            rodape.className = "card-footer";
+            const material = document.createElement("span");
+            material.className = "material";
+            material.textContent = filamento.material;
+            const estado = document.createElement("span");
+            estado.className = disponivel ? "status" : "status unavailable";
+            estado.textContent = disponivel ? "Disponível" : "Indisponível";
+            rodape.append(material, estado);
+            conteudo.append(titulo, descricao, rodape);
+            card.append(imagem, conteudo);
+            return card;
+        }
+
+        async function renderizarFilamentos() {
+            const filamentos = await carregarFilamentos();
+            if (filamentos === null) return;
+            const disponiveis = filamentos.filter(item => item.disponivel === true);
+            filamentGrid.replaceChildren(...filamentos.map(item => criarCardFilamento(item, item.disponivel === true)));
+            countEl.textContent = String(disponiveis.length);
+        }
+        renderizarFilamentos();
+    </script>
+</body>
+
+</html>
