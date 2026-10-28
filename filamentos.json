@@ -1,0 +1,83 @@
+[
+  {
+    "nome": "Preto",
+    "material": "PETG",
+    "descricao": "Clássico para peças técnicas e acabamentos elegantes.",
+    "linkImagem": "midia/filamentos/catalogo-preto.webp",
+    "cor": "#111827",
+    "brilho": "rgba(17,24,39,.35)",
+    "disponivel": true
+  },
+  {
+    "nome": "Branco",
+    "material": "PETG",
+    "descricao": "Versátil para protótipos, letreiros e peças minimalistas.",
+    "linkImagem": "midia/filamentos/catalogo-branco.webp",
+    "cor": "#f9fafb",
+    "brilho": "rgba(255,255,255,.25)",
+    "disponivel": true
+  },
+  {
+    "nome": "Vermelho Translúcido",
+    "material": "PETG",
+    "descricao": "Translúcido e vibrante, ideal para detalhes decorativos.",
+    "linkImagem": "midia/filamentos/catalogo-vermelho-translucido.webp",
+    "cor": "#ef4444",
+    "brilho": "rgba(239,68,68,.3)",
+    "disponivel": true
+  },
+  {
+    "nome": "Vermelho",
+    "material": "PETG",
+    "descricao": "Ideal para detalhes decorativos.",
+    "linkImagem": "midia/filamentos/catalogo-vermelho.webp",
+    "cor": "#ef4444",
+    "brilho": "rgba(239,68,68,.3)",
+    "disponivel": true
+  },
+  {
+    "nome": "Marrom",
+    "material": "PETG",
+    "descricao": "Tom terroso para peças rústicas e decorativas.",
+    "linkImagem": "midia/filamentos/Marrom.png",
+    "cor": "#8b5a2b",
+    "brilho": "rgba(139,90,43,.3)",
+    "disponivel": true
+  },
+  {
+    "nome": "Rosa",
+    "material": "PETG",
+    "descricao": "Um tom alegre para lembranças e itens personalizados.",
+    "linkImagem": "midia/filamentos/catalogo-rosa.webp",
+    "cor": "#ec4899",
+    "brilho": "rgba(236,72,153,.3)",
+    "disponivel": true
+  },
+  {
+    "nome": "Dourado",
+    "material": "PETG",
+    "descricao": "Acabamento marcante para troféus e detalhes premium.",
+    "linkImagem": "midia/filamentos/catalogo-dourado.webp",
+    "cor": "#d4af37",
+    "brilho": "rgba(212,175,55,.3)",
+    "disponivel": true
+  },
+  {
+    "nome": "Verde",
+    "material": "PETG",
+    "descricao": "Cor viva para presentes, decorações e projetos criativos.",
+    "linkImagem": "midia/filamentos/catalogo-verde.webp",
+    "cor": "#22c55e",
+    "brilho": "rgba(34,197,94,.3)",
+    "disponivel": true
+  },
+  {
+    "nome": "Transparente",
+    "material": "PETG",
+    "descricao": "Filamento transparente para peças e projetos personalizados.",
+    "linkImagem": "midia/filamentos/catalogo-transparente.webp",
+    "cor": "#d1d5db",
+    "brilho": "rgba(209,213,219,.3)",
+    "disponivel": true
+  }
+]
