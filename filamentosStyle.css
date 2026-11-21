@@ -90,10 +90,9 @@ header { min-height: 72px; display: flex; align-items: center; justify-content: 
 .image-box { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #fff; }
 .image-box img { display: block; width: 100%; height: 100%; object-fit: contain; transition: transform .3s ease; }
 .filament-card:hover .image-box img { transform: scale(1.02); }
-.color-dot { position: absolute; top: 12px; right: 12px; width: 21px; height: 21px; border: 2px solid white; border-radius: 50%; background: var(--color); box-shadow: 0 2px 10px #0005; }
+.color-dot { position: absolute; top: 12px; right: 12px; width: 21px; height: 21px; border: 2px solid white; border-radius: 50%; background: var(--color); box-shadow: 0 0 12px var(--glow), 0 2px 10px #0005; }
 .card-content { padding: 17px; }
 .card-content h3 { margin: 0 0 6px; font: 700 1.08rem Manrope, sans-serif; letter-spacing: -.03em; }
-.card-content p { min-height: 48px; margin: 0 0 16px; color: var(--muted); font-size: .86rem; line-height: 1.5; }
 .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .material { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .73rem; font-weight: 700; }
 .status { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: .76rem; font-weight: 700; }
@@ -105,6 +104,6 @@ header { min-height: 72px; display: flex; align-items: center; justify-content: 
 .contact-banner p { margin: 0; color: var(--muted); }
 .whatsapp-btn { min-height: 50px; display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: 14px; padding: 0 19px; border-radius: var(--radius-sm); background: var(--accent); color: #17190e; text-decoration: none; font-weight: 700; transition: transform .18s ease; }
 @media (max-width: 900px) { .hero { grid-template-columns: 1fr 1fr; } .filament-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hero-card { min-height: 430px; } }
-@media (max-width: 640px) { .container { width: calc(100% - 32px); padding-top: 16px; } header { margin-bottom: 25px; } .brand p { font-size: .75rem; } .header-link { font-size: 0; gap: 0; } .header-link span { font-size: 1.25rem; } .hero { grid-template-columns: 1fr; gap: 14px; margin-bottom: 64px; } .hero-card { min-height: 390px; padding: 30px 24px; } .hero h2 { font-size: clamp(3.2rem, 14vw, 4.6rem); } .info-card { display: none; } .section-title { display: block; } .section-title p { margin-top: 10px; text-align: left; } .filament-grid { gap: 10px; } .filament-card { border-radius: 15px; } .card-content { padding: 12px; } .card-content h3 { font-size: .95rem; } .card-content p { min-height: 66px; font-size: .8rem; } .card-footer { align-items: flex-start; flex-direction: column; } .contact-banner { align-items: stretch; flex-direction: column; margin-top: 54px; } }
-@media (max-width: 360px) { .container { width: calc(100% - 24px); } .filament-grid { grid-template-columns: 1fr; } .card-content p { min-height: 0; } }
+@media (max-width: 640px) { .container { width: calc(100% - 32px); padding-top: 16px; } header { margin-bottom: 25px; } .brand p { font-size: .75rem; } .header-link { font-size: 0; gap: 0; } .header-link span { font-size: 1.25rem; } .hero { grid-template-columns: 1fr; gap: 14px; margin-bottom: 64px; } .hero-card { min-height: 390px; padding: 30px 24px; } .hero h2 { font-size: clamp(3.2rem, 14vw, 4.6rem); } .info-card { display: none; } .section-title { display: block; } .section-title p { margin-top: 10px; text-align: left; } .filament-grid { gap: 10px; } .filament-card { border-radius: 15px; } .card-content { padding: 12px; } .card-content h3 { font-size: .95rem; }  .card-footer { align-items: flex-start; flex-direction: column; } .contact-banner { align-items: stretch; flex-direction: column; margin-top: 54px; } }
+@media (max-width: 360px) { .container { width: calc(100% - 24px); } .filament-grid { grid-template-columns: 1fr; }  }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }

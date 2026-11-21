@@ -16,7 +16,7 @@
 
 <body>
     <main class="container">
-        <header>
+        <!-- <header>
             <div class="brand">
                 <div class="logo" aria-hidden="true">3D</div>
                 <div>
@@ -26,14 +26,13 @@
             </div>
 
             <a class="header-link" href="#cores">Ver catálogo <span aria-hidden="true">↘</span></a>
-        </header>
+        </header> -->
 
         
 
         <section id="cores">
             <div class="section-title">
                 <h2>Catálogo de cores</h2>
-                <p>Escolha sua cor favorita. A disponibilidade é atualizada em <code>filamentos.json</code>.</p>
             </div>
 
             <div class="shelf">
@@ -50,8 +49,6 @@
     <script>
         const filamentGrid = document.getElementById("filamentGrid");
         const statusEl = document.getElementById("catalogStatus");
-        const countEl = document.getElementById("colorCount");
-
         async function carregarFilamentos() {
             try {
                 const resposta = await fetch("filamentos.json", { cache: "no-store" });
@@ -63,7 +60,7 @@
             }
         }
 
-        function criarCardFilamento(filamento, disponivel) {
+        function criarCardFilamento(filamento) {
             const card = document.createElement("article");
             card.className = "filament-card";
             card.style.setProperty("--color", filamento.cor);
@@ -87,18 +84,13 @@
             conteudo.className = "card-content";
             const titulo = document.createElement("h3");
             titulo.textContent = filamento.nome;
-            const descricao = document.createElement("p");
-            descricao.textContent = filamento.descricao;
             const rodape = document.createElement("div");
             rodape.className = "card-footer";
             const material = document.createElement("span");
             material.className = "material";
             material.textContent = filamento.material;
-            const estado = document.createElement("span");
-            estado.className = disponivel ? "status" : "status unavailable";
-            estado.textContent = disponivel ? "Disponível" : "Indisponível";
-            rodape.append(material, estado);
-            conteudo.append(titulo, descricao, rodape);
+            rodape.append(material);
+            conteudo.append(titulo, rodape);
             card.append(imagem, conteudo);
             return card;
         }
@@ -106,9 +98,7 @@
         async function renderizarFilamentos() {
             const filamentos = await carregarFilamentos();
             if (filamentos === null) return;
-            const disponiveis = filamentos.filter(item => item.disponivel === true);
             filamentGrid.replaceChildren(...filamentos.map(item => criarCardFilamento(item, item.disponivel === true)));
-            countEl.textContent = String(disponiveis.length);
         }
         renderizarFilamentos();
     </script>
