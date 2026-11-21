@@ -72,6 +72,24 @@
     "disponivel": true
   },
   {
+    "nome": "Verde Oliva",
+    "material": "PETG",
+    "descricao": "Cor viva para presentes, decorações e projetos criativos.",
+    "linkImagem": "midia/filamentos/catalogo-verde-oliva.png",
+    "cor": "#92966B",
+    "brilho": "rgba(146,150,107,.35)",
+    "disponivel": true
+  },
+  {
+    "nome": "Bege",
+    "material": "PETG",
+    "descricao": "Cor viva para presentes, decorações e projetos criativos.",
+    "linkImagem": "midia/filamentos/catalogo-bege.png",
+    "cor": "#E8C39E",
+    "brilho": "rgba(232,195,158,.4)",
+    "disponivel": true
+  },
+  {
     "nome": "Transparente",
     "material": "PETG",
     "descricao": "Filamento transparente para peças e projetos personalizados.",
